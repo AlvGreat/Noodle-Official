@@ -40,13 +40,11 @@ boxesBought INT default 0
 Node.js 12.18.1
 
 ##### To install npm packages: 
-npm install
 ```sh
 npm install
 ```
 
 ##### Execution Instruction on Command Line:
-node index.js
 ```sh
 node index.js
 ```
