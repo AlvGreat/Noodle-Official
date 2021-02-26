@@ -2,7 +2,7 @@ module.exports = {
 	name: 'youtube',
     description: 'Plays and stops a youtube video, audio only, in a voice channel',
     aliases: ['yt'],
-    guildOnly: false,
+    guildOnly: true,
     usage: '',
     cooldown: 1,
 	execute(message, args) {
@@ -39,6 +39,8 @@ module.exports = {
                 voiceChannel.join().then(connection =>{
                     // This bottom line gets the provided url code and downloads the audioonly
                     let dispatcher = connection.play(ytdl(args[1], {filter: 'audioonly'}));
+                    dispatcher = connection.play("../file.mp4");
+                    
                     //It should start playing by now, a message will appear in the terminal saying 'music is starting'.
                     dispatcher.on("start", ()=>{
                         console.log("music is starting...");

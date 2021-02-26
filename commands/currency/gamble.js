@@ -7,7 +7,7 @@ module.exports = {
     aliases: ["bet"],
     guildOnly: true,
     usage: '[req: amount]',
-    cooldown: 1.5,
+    cooldown: 1,
 	execute(message, args, con) {
         function commas(x) {
             return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -42,7 +42,7 @@ module.exports = {
                     //200%
                     return amt * 1;
                 }
-                else if (rand < 0.46) {
+                else if (rand < 0.48) {
                     //150%
                     return amt * 0.5
                 }

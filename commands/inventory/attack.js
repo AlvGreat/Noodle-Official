@@ -8,7 +8,7 @@ module.exports = {
     description: `Attack someone with a weapon! ${prefix}attack @someone [weapon]. Upon death of target, you will receive 5% of their coins and 40% of each of their items (rounded down).`,
     aliases: [],
     guildOnly: true,
-    cooldown: 2,
+    cooldown: 10,
 	execute(message, args, con) {
         function commas(x) {
             return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -18,7 +18,7 @@ module.exports = {
 
         //input validation
         if(!args[0]) return message.channel.send(`Something went wrong. Command usage: ${prefix}attack @user (weapon)`);
-        if(!message.mentions.users.first().id) return message.channel.send("You must ping someone to attack!");
+        if(!message.mentions.users.first()) return message.channel.send("You must ping someone to attack!");
         let target = message.mentions.users.first().id;
         let targetNoID = message.mentions.users.first();
 

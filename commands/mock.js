@@ -6,6 +6,8 @@ module.exports = {
     usage: '<req: string to mock>',
     cooldown: 1,
 	execute(message, args) {
+        if(!args[0]) return message.channel.send("yOu hAvE To gIvE Me sOmEtHiNg tO MoCk");
+        
         //check if it's a letter
         function isALetter(char) {
             return (/[a-zA-Z]/).test(char)

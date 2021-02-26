@@ -10,15 +10,15 @@ module.exports = {
 	async execute(message, args) {
         try {
             const res = await fetch('https://dog.ceo/api/breeds/image/random');
-            // console.log(res);
-            // console.log("----------");
+            //console.log(res);
+            //console.log("----------");
             const json = await res.json();
-            // console.log(json);
+            //console.log(json);
 
             message.channel.send(json.message);
-            } catch (e) {
-            message.channel.send('Could not obtain dog picture :confused: ');
-            return console.error(e);
-            }
+        } catch (e) {
+        message.channel.send('Could not obtain dog picture :confused: ');
+        return console.log(e);
+        }
 	},
 };

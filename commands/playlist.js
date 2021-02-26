@@ -42,6 +42,7 @@ module.exports = {
     aliases: ["pl"],
     guildOnly: false,
     cooldown: 0,
+    playlistEmbed: playlistEmbed,
 	execute(message, args) {
         let noodleID = "304393518816952321";
         let shrimpyID = "338163317019377665";
@@ -50,5 +51,4 @@ module.exports = {
         
         message.channel.send({ embed: playlistEmbed });  
     },
-    playlistEmbed: playlistEmbed
 };

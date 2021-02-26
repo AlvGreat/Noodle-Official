@@ -7,7 +7,7 @@ module.exports = {
     description: `Use something from your inventory! ${prefix}heal [item] [amount]. Shortcuts for items: remove the potion at the end of the name`,
     aliases: ["use"],
     guildOnly: true,
-    cooldown: 2,
+    cooldown: 5,
 	execute(message, args, con) {
         function randomNum(num1, num2) { 
             return Math.round((Math.random() * (num2 - num1) + num1));

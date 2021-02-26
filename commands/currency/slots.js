@@ -114,7 +114,7 @@ module.exports = {
                 }
                 winMult = 2;
             }
-
+            
             let sql; 
             let amt = argument * winMult;
             let multiplier = rows[0].multiplier;

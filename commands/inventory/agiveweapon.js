@@ -7,7 +7,7 @@ module.exports = {
     description: `[for testing] Obtain a random weapon to attack other users with! Obtained weapon level: true random`,
     aliases: ["agweapon", "agw"],
     guildOnly: true,
-    cooldown: 1,
+    cooldown: 0,
 	execute(message, args, con) {        
         let Alv = "304393518816952321";
         let Luis = "252536683944214531";

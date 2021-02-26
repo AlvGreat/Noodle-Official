@@ -58,6 +58,5 @@ module.exports = {
         });
 
         message.channel.send("Your decoded message is:\n\n" + messageConverted.join(""));
-
 	},
 };

@@ -20,7 +20,7 @@ module.exports = {
             let weapon = w.tier2[rand].name;
 
             con.query(`UPDATE Noodle SET ${weapon} = ${weapon} + 1 WHERE id = ${message.author.id}`);
-            message.reply(`You got a ${weapon} out of your hourly box!`);
+            message.reply(`You got a ${weapon} out of your daily box!`);
         })
 	},
 };

@@ -6,7 +6,7 @@ module.exports = {
     description: 'Returns the amount of coins a user has',
     aliases: ["bal"],
     guildOnly: true,
-    cooldown: 1.5,
+    cooldown: 1,
     usage: '',
     execute(message, args, con) {        
         function commas(x) {
