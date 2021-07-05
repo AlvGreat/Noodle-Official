@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Alvin Lew and Luis Gonzalez",
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
-    "discord.js": "^12.1.1",
-    "ffmpeg-static": "^4.2.5",
-    "mysql": "^2.18.1",
+    "@discordjs/opus": "0.3.2",
+    "discord.js": "12.1.1",
+    "ffmpeg-static": "4.2.5",
+    "mysql": "2.18.1",
     "superagent": "^5.2.2",
-    "ytdl-core": "^2.1.7"
+    "ytdl-core": "2.1.7"
   }
 }

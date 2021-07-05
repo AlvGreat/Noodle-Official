@@ -35,7 +35,7 @@ module.exports = {
                 
             }
             catch(error){
-                message.channel.send(`Something when wrong with r/cats`)
+                message.channel.send(`Something went wrong with r/cats`)
             }
         };
         

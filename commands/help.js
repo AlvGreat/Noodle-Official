@@ -8,7 +8,7 @@ module.exports = {
 	usage: '[command name]',
 	cooldown: 1,
 	execute(message, args) {
-        const { curCommands, invCommands, regCommands} = message.client;
+        const { curCommands, invCommands, regCommands } = message.client;
         const curCommandsList = curCommands.map(command => command.name).join(', '); 
         const regCommandsList = regCommands.map(command => command.name).join(', '); 
         const invCommandsList = invCommands.map(command => command.name).join(', '); ;

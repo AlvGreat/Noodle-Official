@@ -1,9 +1,16 @@
 # Noodle-Official
 Official Noodle Discord bot featuring a currency system using MySQL and various API calls.
 
-Before running, make sure you create the following database + table in MySQL and add the connection to the index.js file:
+## Setup Steps:
+
+1. Clone repository and install a text editor/IDE of choice + Node.js
+2. Install MySQL Server to run a server locally and MySQL Workbench to test queries manually. (If you have a remote server, skip this step)
+3. Add MySQL connection details and Discord bot token in `config.json`
+4. Run the following queries to create the correct database/table names for the bot. 
 ```sql
 CREATE DATABASE Noodle;
+
+USE DATABASE Noodle;
 
 CREATE TABLE Noodle (
 id VARCHAR(30), 
@@ -36,6 +43,7 @@ boxesBought INT default 0
 );
 ```
 
+## Other Details:
 ##### Node.js version:
 Node.js 12.18.1
 
@@ -46,6 +54,10 @@ npm install
 
 ##### Execution Instruction on Command Line:
 ```sh
+npm start
+```
+OR
+```
 node index.js
 ```
 

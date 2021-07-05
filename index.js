@@ -1,10 +1,14 @@
 const fs = require('fs'); //node's file system
 const Discord = require('discord.js'); //require discord.js
-const { prefix, token } = require('./config.json'); //take prefix and token from config
+const { prefix, token, sqlHost, sqlUser, sqlDatabase, sqlPassword } = require('./config.json'); //take prefix and token from config
 const mysql = require("mysql");
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+
+client.curCommands = new Discord.Collection();
+client.invCommands = new Discord.Collection();
+client.regCommands = new Discord.Collection();
 
 //read new command files
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -13,28 +17,31 @@ const inventoryCommandFiles = fs.readdirSync("./commands/inventory").filter(file
 
 for (const file of currencyCommandFiles) {
 	const command = require(`./commands/currency/${file}`);
-	client.commands.set(command.name, command);
+    client.commands.set(command.name, command);
+	client.curCommands.set(command.name, command);
 }
 
 for (const file of inventoryCommandFiles) {
 	const command = require(`./commands/inventory/${file}`);
-	client.commands.set(command.name, command);
+    client.commands.set(command.name, command);
+	client.invCommands.set(command.name, command);
 }
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+    client.commands.set(command.name, command);
+	client.regCommands.set(command.name, command);
 }
 
 //this is if you want cooldowns for your commands
 const cooldowns = new Discord.Collection();
 
+// add your own connection information in config.json
 let con = mysql.createConnection({
-    //PLEASE ADD YOUR OWN CONNECTION HERE
-    host: "localhost",
-    user: "root", 
-    password: "discordNoodle",
-    database: "Noodle"
+    host: sqlHost,
+    user: sqlUser, 
+    password: sqlPassword,
+    database: sqlDatabase
 });
 
 con.connect(err => {
@@ -76,6 +83,7 @@ client.on('message', message => {
 
     //custom playlist command with alt prefix
     const { playlistEmbed } = require("./commands/playlist");
+
     //dif prefix, only usable by playlist owners
     //send same plaaylist from playlist command
     if ((message.content === "$playlist" || message.content === "$pl") && (message.author.id == "338163317019377665" || message.author.id == "304393518816952321")) {
@@ -132,8 +140,6 @@ client.on('message', message => {
             const timeLeft = (expirationTime - now) / 1000;
             
             return message.reply(`please wait ${timeFormat(timeLeft)} before reusing the \`${command.name}\` command.`);
-            //this returns the same thing
-            //return message.reply("please wait " + timeLeft.toFixed(1) + "more second(s) before reusing the " + command.name + "command.");
         }
     }
 

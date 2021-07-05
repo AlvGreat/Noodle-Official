@@ -1,4 +1,8 @@
 {
     "prefix": "%",    
-    "token": "[add bot token here]" 
+    "token": "",
+    "sqlHost": "localhost",
+    "sqlUser": "root", 
+    "sqlPassword": "discordNoodle",
+    "sqlDatabase": "Noodle"
 }
